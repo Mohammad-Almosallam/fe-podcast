@@ -36,7 +36,7 @@ export default function SearchBar() {
         placeholder="Search through over 70 million podcasts and episodes..."
       />
 
-      <div className="space-x-2">
+      <div className="hidden sm:visible space-x-2">
         <button className="h-7.5 bg-gradient-to-t from-[#2d5479] to-[#3f678b] cursor-pointer hover:brightness-125 text-sm px-3 py-1 rounded text-white transition duration-200 ease-in-out">
           Log in
         </button>

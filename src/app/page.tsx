@@ -1,8 +1,7 @@
 import Sidebar from "@/components/Sidebar";
 import SearchBar from "@/components/SearchBar";
-import PodcastCard from "@/components/PodcastCard";
-import EpisodeRow from "@/components/EpisodeRow";
-import Section from "./components/Section";
+import PodcastSection from "./components/view/PodcastSection";
+import EpisodeSection from "./components/view/EpisodeSection";
 
 const DUMMY_PODCASTS = Array(5).fill({
   title: "بودكاست قهوة",
@@ -10,7 +9,7 @@ const DUMMY_PODCASTS = Array(5).fill({
   image: "/placeholder.png",
 });
 
-const DUMMY_EPISODES = Array(10).fill({
+const DUMMY_EPISODES = Array(20).fill({
   title: "قهوة وسمر",
   author: "Reham Ayam",
   image: "/placeholder.png",
@@ -24,33 +23,8 @@ export default function Home() {
         <SearchBar />
 
         <div className="mt-8">
-          <Section
-            title={
-              <div>
-                Top podcasts for <span>فلان</span>
-              </div>
-            }
-          >
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {DUMMY_PODCASTS.map((p, i) => (
-                <PodcastCard key={i} {...p} />
-              ))}
-            </div>
-          </Section>
-
-          <Section
-            title={
-              <div>
-                Top episodes for <span className="text-blue-400">فلان</span>
-              </div>
-            }
-          >
-            <div className="grid md:grid-cols-2 gap-4">
-              {DUMMY_EPISODES.map((e, i) => (
-                <EpisodeRow key={i} {...e} />
-              ))}
-            </div>
-          </Section>
+          <PodcastSection podcasts={DUMMY_PODCASTS} />
+          <EpisodeSection episodes={DUMMY_EPISODES} />
         </div>
       </main>
     </div>
