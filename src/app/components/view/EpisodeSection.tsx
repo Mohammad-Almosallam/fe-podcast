@@ -50,7 +50,7 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
           ))}
         </div>
       ) : (
-        <div className="space-y-3">
+        <div className="grid grid-cols-1 @xl:grid-cols-3 gap-x-4 gap-y-1">
           {episodes.map((e, index) => (
             <EpisodeCard key={index} episode={e} viewMode={viewMode} />
           ))}
