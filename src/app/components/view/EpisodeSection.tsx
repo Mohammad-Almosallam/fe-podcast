@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import Section from "../Section";
+import Section from "../layout/Section";
 import ViewToggleMenu, { ViewModes, ViewOptions } from "../ViewToggleMenu";
 import EpisodeCard, { Episode } from "../cards/EpisodeCard";
 

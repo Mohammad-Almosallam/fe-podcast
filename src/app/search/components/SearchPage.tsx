@@ -3,7 +3,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import debounce from "lodash.debounce";
 import { useRouter, useSearchParams } from "next/navigation";
-import SearchBar from "@/components/SearchBar";
+import SearchBar from "@/components/layout/SearchBar";
 import PodcastSection from "@/components/view/PodcastSection";
 import EpisodeSection from "@/components/view/EpisodeSection";
 import { useGetPodcastsAndEpisodes } from "@/api/search/useGetPodcastsAndEpisodes";
@@ -30,7 +30,6 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
   const podcasts = fetchedData?.podcasts || [];
   const episodes = fetchedData?.episodes || [];
 
-  //SECTION - Functions
   const handleSearchChange = (value: string) => {
     setSearch(value);
     debouncedSearch(value);
@@ -48,7 +47,6 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
     [router]
   );
 
-  //SECTION - Effects
   useEffect(() => {
     return () => {
       debouncedSearch.cancel();
@@ -74,7 +72,7 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
 
       {isError && (
         <div className="text-red-500 text-center mt-4">
-          Error loading podcasts and episodes2
+          Error loading podcasts and episodes
         </div>
       )}
 

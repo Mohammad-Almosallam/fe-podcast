@@ -6,21 +6,20 @@ import MenuDots from "@/assets/menu-dots.svg";
 export type Podcast = {
   id: string;
   title: string;
-  image: string;
+  imageUrl: string;
   author: string;
 };
 
 type PodcastCardProps = {
   podcast: Podcast;
-  viewMode: ViewModes;
 };
 
-const PodcastCard = ({ podcast, viewMode }: PodcastCardProps) => {
+const PodcastCard = ({ podcast }: PodcastCardProps) => {
   return (
     <div className="w-full h-full">
       <div className="aspect-square mb-2 rounded cursor-pointer">
         <img
-          src={podcast.image}
+          src={podcast.imageUrl}
           alt={podcast.title}
           className="w-full h-full object-cover rounded overflow-hidden"
         />

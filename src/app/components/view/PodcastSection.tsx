@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import Section from "../Section";
+import Section from "../layout/Section";
 import ViewToggleMenu, { ViewModes, ViewOptions } from "../ViewToggleMenu";
 import PodcastCard, { Podcast } from "../cards/PodcastCard";
 import EmblaCarousel from "../embla-carousel/EmbalaCarousel";
@@ -22,7 +22,7 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
             <EmblaCarousel>
               {podcasts.map((podcast, index) => (
                 <div key={index} className="shrink-0">
-                  <PodcastCard podcast={podcast} viewMode="scroll" />
+                  <PodcastCard podcast={podcast} />
                 </div>
               ))}
             </EmblaCarousel>
@@ -34,7 +34,7 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
         return (
           <div className="grid grid-cols-2 @[500px]:grid-cols-3 @[700px]:grid-cols-4 @[950px]:grid-cols-5 gap-4 px-5 py-3">
             {podcasts.map((podcast, index) => (
-              <PodcastCard key={index} podcast={podcast} viewMode="grid" />
+              <PodcastCard key={index} podcast={podcast} />
             ))}
           </div>
         );
