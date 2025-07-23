@@ -38,19 +38,25 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
       }
     >
       {viewMode === "scroll" ? (
-        <div className="flex overflow-x-auto gap-3 pb-2">
+        <div className="flex overflow-x-auto gap-3 pb-2 px-5 py-3">
           {episodes.map((e, index) => (
             <EpisodeCard key={index} episode={e} viewMode="scroll" />
           ))}
         </div>
       ) : viewMode === "grid" ? (
-        <div className="grid grid-cols-1 @xl:grid-cols-2 @[50rem]:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 @xl:grid-cols-2 @[50rem]:grid-cols-3 gap-4 px-5 py-3">
           {episodes.map((e, index) => (
             <EpisodeCard key={index} episode={e} viewMode="grid" />
           ))}
         </div>
+      ) : viewMode === "compact" ? (
+        <div className="grid grid-cols-1 @xl:grid-cols-3 gap-x-4 gap-y-1 px-5 py-3">
+          {episodes.map((e, index) => (
+            <EpisodeCard key={index} episode={e} viewMode={viewMode} />
+          ))}
+        </div>
       ) : (
-        <div className="grid grid-cols-1 @xl:grid-cols-3 gap-x-4 gap-y-1">
+        <div className="flex flex-col">
           {episodes.map((e, index) => (
             <EpisodeCard key={index} episode={e} viewMode={viewMode} />
           ))}

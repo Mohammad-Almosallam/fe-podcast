@@ -2,6 +2,7 @@ import React from "react";
 import { ViewModes } from "../ViewToggleMenu";
 import Image from "next/image";
 import MenuDots from "@/assets/menu-dots.svg";
+
 export type Podcast = {
   id: string;
   title: string;

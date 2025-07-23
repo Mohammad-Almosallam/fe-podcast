@@ -13,7 +13,7 @@ const Section = ({ title, children, menu }: SectionProps) => {
         <h2 className="text-md font-medium">{title}</h2>
         {menu}
       </div>
-      <div className="@container px-5 py-3 ">{children}</div>
+      <div className="@container">{children}</div>
     </section>
   );
 };

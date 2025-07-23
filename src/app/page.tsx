@@ -7,12 +7,16 @@ const DUMMY_PODCASTS = Array(5).fill({
   title: "بودكاست قهوة",
   author: "Omar Eldeep",
   image: "https://dummyimage.com/600x400/ffffff/ebecff",
+  description:
+    "Joe is a hobo punk anarchist who wants to jettison part of his old self, so that he can step out onto the dance floor. Our final episode of season 2.",
 });
 
 const DUMMY_EPISODES = Array(20).fill({
   title: "قهوة وسمر",
   author: "Reham Ayam",
   image: "https://dummyimage.com/600x400/ffffff/ebecff",
+  description:
+    "Joe is a hobo punk anarchist who wants to jettison part of his old self, so that he can step out onto the dance floor. Our final episode of season 2.",
 });
 
 export default function Home() {

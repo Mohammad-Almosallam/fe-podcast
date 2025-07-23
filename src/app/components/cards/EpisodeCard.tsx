@@ -21,14 +21,11 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
       return (
         <div className="flex bg-gradient-to-t from-[#22202c] to-[#27232e] h-full w-full rounded-md overflow-hidden shadow-[inset_0_1px_1px_hsl(240,10%,20%),_0_2px_4px_rgba(0,0,0,0.05)]">
           <div className="relative w-[110px] h-[110px] cursor-pointer shrink-0 group">
-            {/* Episode image */}
             <img
               src={episode.image}
               alt={episode.title}
               className="w-full h-full object-cover"
             />
-
-            {/* Hover overlay */}
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center">
               <Image src={PlayIcon} alt="menu" width={44} height={44} />
             </div>
@@ -69,7 +66,7 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
       );
     case "compact":
       return (
-        <div className="flex flex-col gap-1 h-full w-full  ">
+        <div className="flex flex-col gap-0.5 h-full w-full  ">
           <div className="flex  overflow-hidden rounded-sm hover:bg-black/30 p-1 gap-2.5 ">
             <div className="relative w-[50px] h-[50px] cursor-pointer shrink-0 rounded-sm overflow-hidden">
               <img
@@ -104,8 +101,59 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
       );
     case "list":
       return (
-        <div className="bg-gray-700 p-3 border-b border-gray-600">
-          List - {episode.title}
+        <div className="flex overflow-hidden rounded-sm group hover:bg-black/30 px-4 py-2.5 gap-2.5 border-b-1 border-[var(--color-border)]">
+          <div className="relative w-[100px] h-[100px] cursor-pointer shrink-0 rounded-sm overflow-hidden">
+            <img
+              src={episode.image}
+              alt={episode.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center">
+              <Image src={PlayIcon} alt="menu" width={44} height={44} />
+            </div>
+          </div>
+
+          <div className="flex w-full items-center justify-between ">
+            <div className="flex flex-col gap-3 ">
+              <div>
+                <a className="text-md cursor-pointer hover:underline line-clamp-1">
+                  040 | فن التواصل
+                </a>
+                <a className="text-xs cursor-pointer hover:underline line-clamp-1 text-[#E3BD71]">
+                  The Motivator Podcast with Dhari Ibrahim
+                </a>
+                <a className="text-xs cursor-pointer hover:underline line-clamp-2 text-[#ffffff99]">
+                  Joe is a hobo punk anarchist who wants to jettison part of his
+                  old self, so that he can step out onto the dance floor. Our
+                  final episode of season 2.
+                </a>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-[#cfd0d3]">Jul 2, 2019</span>
+                <span className="text-xs text-[#cfd0d3]">44 min</span>
+              </div>
+            </div>
+            <div className="flex flex-col gap-4 shrink-0">
+              <button className="cursor-pointer">
+                <Image
+                  src={PlayIcon}
+                  alt="menu"
+                  width={12}
+                  height={12}
+                  className="brightness-50 hover:brightness-100 transition duration-200 ease-in-out"
+                />
+              </button>
+              <button className="cursor-pointer ">
+                <Image
+                  src={MenuDots}
+                  alt="menu"
+                  width={12}
+                  height={12}
+                  className="brightness-50 hover:brightness-100 transition duration-200 ease-in-out"
+                />
+              </button>
+            </div>
+          </div>
         </div>
       );
     default:

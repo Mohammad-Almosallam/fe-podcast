@@ -30,13 +30,13 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
       }
     >
       {viewMode === "scroll" ? (
-        <div className="flex overflow-x-auto gap-3 pb-2">
+        <div className="flex overflow-x-auto gap-3 pb-2 px-5 py-3">
           {podcasts.map((p, index) => (
             <PodcastCard key={index} podcast={p} viewMode="scroll" />
           ))}
         </div>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 px-5 py-3">
           {podcasts.map((p, index) => (
             <PodcastCard key={index} podcast={p} viewMode="grid" />
           ))}
