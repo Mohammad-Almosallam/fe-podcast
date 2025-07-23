@@ -6,13 +6,13 @@ import EpisodeSection from "./components/view/EpisodeSection";
 const DUMMY_PODCASTS = Array(5).fill({
   title: "بودكاست قهوة",
   author: "Omar Eldeep",
-  image: "/placeholder.png",
+  image: "https://dummyimage.com/600x400/ffffff/ebecff",
 });
 
 const DUMMY_EPISODES = Array(20).fill({
   title: "قهوة وسمر",
   author: "Reham Ayam",
-  image: "/placeholder.png",
+  image: "https://dummyimage.com/600x400/ffffff/ebecff",
 });
 
 export default function Home() {

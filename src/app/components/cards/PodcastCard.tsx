@@ -17,10 +17,10 @@ type PodcastCardProps = {
 const PodcastCard = ({ podcast, viewMode }: PodcastCardProps) => {
   if (viewMode === "grid") {
     return (
-      <div className=" rounded-md ">
+      <div className="w-full h-full">
         <div className="aspect-square mb-2 rounded">
           <img
-            src="https://dummyimage.com/600x400/ffffff/ebecff"
+            src={podcast.image}
             alt={podcast.title}
             className="w-full h-full object-cover rounded overflow-hidden"
           />
@@ -30,7 +30,7 @@ const PodcastCard = ({ podcast, viewMode }: PodcastCardProps) => {
             <p className="text-sm  truncate">{podcast.title}</p>
             <p className="text-xs text-gray-400 truncate">{podcast.author}</p>
           </div>
-          <button className="cursor-pointer ">
+          <button className="cursor-pointer  mr-[-7px]">
             <Image
               src={MenuDots}
               alt="menu"
