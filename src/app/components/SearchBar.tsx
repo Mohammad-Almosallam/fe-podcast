@@ -3,7 +3,12 @@ import RightChevronIcon from "@/assets/right-chevron.svg";
 import LeftChevronIcon from "@/assets/left-chevron.svg";
 import MenuDots from "@/assets/menu-dots.svg";
 
-export default function SearchBar() {
+type Props = {
+  value: string;
+  onChange: (value: string) => void;
+};
+
+export default function SearchBar({ value, onChange }: Props) {
   return (
     <div
       className="
@@ -11,7 +16,6 @@ export default function SearchBar() {
         flex items-center justify-between gap-2 
         px-2.5 py-3.5 
         bg-[hsl(238,27%,12%)] 
-
       "
     >
       <div className="flex items-center gap-2 shrink-0">
@@ -32,6 +36,8 @@ export default function SearchBar() {
       </div>
 
       <input
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
         className="flex-1 h-8 px-4 py-2 text-sm text-center rounded-lg border border-[var(--color-input-border)] focus:outline-none focus:border-indigo-400 focus:bg-[var(--color-input-bg-hover)] focus:placeholder-transparent"
         placeholder="Search through over 70 million podcasts and episodes..."
       />

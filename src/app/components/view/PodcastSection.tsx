@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import Section from "../Section";
 import ViewToggleMenu, { ViewModes, ViewOptions } from "../ViewToggleMenu";
 import PodcastCard, { Podcast } from "../cards/PodcastCard";
+import EmblaCarousel from "../embla-carousel/EmbalaCarousel";
 
 const viewOptions: ViewOptions[] = [
   { label: "Grid", value: "grid" },
@@ -17,10 +18,14 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
     switch (viewMode) {
       case "scroll":
         return (
-          <div className="flex overflow-x-auto gap-3 pb-2 px-5 py-3">
-            {podcasts.map((podcast, index) => (
-              <PodcastCard key={index} podcast={podcast} viewMode="scroll" />
-            ))}
+          <div className="relative px-5 py-3">
+            <EmblaCarousel>
+              {podcasts.map((podcast, index) => (
+                <div key={index} className="shrink-0">
+                  <PodcastCard podcast={podcast} viewMode="scroll" />
+                </div>
+              ))}
+            </EmblaCarousel>
           </div>
         );
 

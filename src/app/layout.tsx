@@ -1,5 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
+import Sidebar from "./components/Sidebar";
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "Podbay Clone",
@@ -14,7 +16,12 @@ export default function RootLayout({
   return (
     <html>
       <body className="font-sans text-white overflow-hidden bg-[var(--color-bg-main)]">
-        {children}
+        <Providers>
+          <div className="flex h-screen">
+            <Sidebar />
+            {children}
+          </div>
+        </Providers>
       </body>
     </html>
   );

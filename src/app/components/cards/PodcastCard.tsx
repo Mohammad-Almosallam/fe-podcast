@@ -16,48 +16,36 @@ type PodcastCardProps = {
 };
 
 const PodcastCard = ({ podcast, viewMode }: PodcastCardProps) => {
-  if (viewMode === "grid") {
-    return (
-      <div className="w-full h-full">
-        <div className="aspect-square mb-2 rounded cursor-pointer">
-          <img
-            src={podcast.image}
-            alt={podcast.title}
-            className="w-full h-full object-cover rounded overflow-hidden"
+  return (
+    <div className="w-full h-full">
+      <div className="aspect-square mb-2 rounded cursor-pointer">
+        <img
+          src={podcast.image}
+          alt={podcast.title}
+          className="w-full h-full object-cover rounded overflow-hidden"
+        />
+      </div>
+      <div className="flex items-start  justify-between ">
+        <div className="flex flex-col">
+          <a className="text-sm  line-clamp-1 cursor-pointer hover:underline">
+            {podcast.title}
+          </a>
+          <a className="text-xs text-gray-400 line-clamp-1 cursor-pointer hover:underline">
+            {podcast.author}
+          </a>
+        </div>
+        <button className="cursor-pointer  mr-[-7px]">
+          <Image
+            src={MenuDots}
+            alt="menu"
+            width={20}
+            height={20}
+            className="brightness-50 hover:brightness-100 transition duration-200 ease-in-out"
           />
-        </div>
-        <div className="flex items-start  justify-between ">
-          <div className="flex flex-col">
-            <a className="text-sm  line-clamp-1 cursor-pointer hover:underline">
-              {podcast.title}
-            </a>
-            <a className="text-xs text-gray-400 line-clamp-1 cursor-pointer hover:underline">
-              {podcast.author}
-            </a>
-          </div>
-          <button className="cursor-pointer  mr-[-7px]">
-            <Image
-              src={MenuDots}
-              alt="menu"
-              width={20}
-              height={20}
-              className="brightness-50 hover:brightness-100 transition duration-200 ease-in-out"
-            />
-          </button>
-        </div>
+        </button>
       </div>
-    );
-  }
-
-  if (viewMode === "scroll") {
-    return (
-      <div className="w-40 h-40 bg-gray-700 rounded shrink-0">
-        Scroll View - {podcast.title}
-      </div>
-    );
-  }
-
-  return null;
+    </div>
+  );
 };
 
 export default PodcastCard;

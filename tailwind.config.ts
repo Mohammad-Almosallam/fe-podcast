@@ -1,5 +1,6 @@
 import containerQueries from "@tailwindcss/container-queries";
 import type { Config } from "tailwindcss";
+import scrollbar from "tailwind-scrollbar";
 
 const config: Config = {
   content: [
@@ -9,6 +10,6 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [containerQueries],
+  plugins: [containerQueries, scrollbar],
 };
 export default config;
