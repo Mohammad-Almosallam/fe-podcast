@@ -19,7 +19,7 @@ const PodcastCard = ({ podcast, viewMode }: PodcastCardProps) => {
   if (viewMode === "grid") {
     return (
       <div className="w-full h-full">
-        <div className="aspect-square mb-2 rounded">
+        <div className="aspect-square mb-2 rounded cursor-pointer">
           <img
             src={podcast.image}
             alt={podcast.title}
@@ -28,8 +28,12 @@ const PodcastCard = ({ podcast, viewMode }: PodcastCardProps) => {
         </div>
         <div className="flex items-start  justify-between ">
           <div className="flex flex-col">
-            <p className="text-sm  truncate">{podcast.title}</p>
-            <p className="text-xs text-gray-400 truncate">{podcast.author}</p>
+            <a className="text-sm  line-clamp-1 cursor-pointer hover:underline">
+              {podcast.title}
+            </a>
+            <a className="text-xs text-gray-400 line-clamp-1 cursor-pointer hover:underline">
+              {podcast.author}
+            </a>
           </div>
           <button className="cursor-pointer  mr-[-7px]">
             <Image
