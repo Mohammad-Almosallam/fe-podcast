@@ -1,8 +1,8 @@
 "use client";
 
-import React, { ReactNode, useEffect, useMemo } from "react";
+import { useScroll } from "@/features/search/hooks";
+import React, { ReactNode, useMemo } from "react";
 import useMeasure from "react-use-measure";
-import { useScroll } from "./ScrollProvider";
 
 export interface BreakpointConfig {
   maxWidth: number;

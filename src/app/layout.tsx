@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import Sidebar from "./components/layout/Sidebar";
-import Providers from "./providers";
+import Sidebar from "../components/layout/Sidebar";
+import ReactQueryProvider from "@/providers/ReactQueryProvider";
 
 export const metadata: Metadata = {
   title: "Podbay Clone",
@@ -16,12 +16,12 @@ export default function RootLayout({
   return (
     <html>
       <body className="font-sans text-white overflow-hidden bg-[var(--color-bg-main)]">
-        <Providers>
+        <ReactQueryProvider>
           <div className="flex h-screen">
             <Sidebar />
             {children}
           </div>
-        </Providers>
+        </ReactQueryProvider>
       </body>
     </html>
   );

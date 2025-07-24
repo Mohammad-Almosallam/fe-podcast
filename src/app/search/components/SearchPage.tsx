@@ -3,11 +3,11 @@
 import React, { useEffect, useMemo, useState } from "react";
 import debounce from "lodash.debounce";
 import { useRouter, useSearchParams } from "next/navigation";
-import SearchBar from "@/components/layout/SearchBar";
-import PodcastSection from "@/components/view/PodcastSection";
-import EpisodeSection from "@/components/view/EpisodeSection";
-import { useGetPodcastsAndEpisodes } from "@/api/search/useGetPodcastsAndEpisodes";
-import { ScrollProvider } from "@/components/scroll-list/ScrollProvider";
+import SearchBar from "../../../components/layout/SearchBar";
+import PodcastSection from "./PodcastSection";
+
+import { useGetPodcastsAndEpisodes } from "@/app/search/api/useGetPodcastsAndEpisodes";
+import EpisodeSection from "@/app/search/components/EpisodeSection";
 
 export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
   const searchParams = useSearchParams();

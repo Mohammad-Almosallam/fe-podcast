@@ -2,9 +2,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import MenuDots from "@/assets/menu-dots.svg";
-import { useScroll } from "./scroll-list/ScrollProvider";
+
 import LeftChevronIcon from "@/assets/left-chevron.svg";
 import RightChevronIcon from "@/assets/right-chevron.svg";
+import { useScroll } from "@/features/search/hooks";
 
 export type ViewModes = "grid" | "scroll" | "list" | "compact";
 
@@ -27,6 +28,7 @@ const ViewToggleMenu = ({
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const { scrollNext, scrollPrev } = useScroll();
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -49,16 +51,16 @@ const ViewToggleMenu = ({
             alt="left-chevron"
             width={22}
             height={22}
-            onClick={() => scrollPrev(600)}
-            className="opacity-50 cursor-pointer hover:opacity-100 hidden sm:block"
+            onClick={() => scrollPrev()}
+            className="opacity-50 cursor-pointer hover:opacity-100 "
           />
           <Image
             src={RightChevronIcon}
             alt="right-chevron"
             width={22}
             height={22}
-            onClick={() => scrollNext(600)}
-            className="opacity-50 cursor-pointer hover:opacity-100 hidden sm:block"
+            onClick={() => scrollNext()}
+            className="opacity-50 cursor-pointer hover:opacity-100"
           />
         </div>
       )}

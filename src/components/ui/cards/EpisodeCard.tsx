@@ -1,10 +1,11 @@
 import React from "react";
-import { ViewModes } from "../ViewToggleMenu";
+
 import Image from "next/image";
 import PlayIcon from "@/assets/play.svg";
 import MenuDots from "@/assets/menu-dots.svg";
 import { convertMsToMinutes } from "@/utils/convertMsToMinutes";
 import { format } from "date-fns";
+import { ViewModes } from "../buttons/ViewToggleMenu";
 
 export type Episode = {
   id: string;

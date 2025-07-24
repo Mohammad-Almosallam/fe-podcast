@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
-import SidebarBtn from "../buttons/SidebarBtn";
+
 import SaturnIcon from "@/assets/saturn.svg";
 import RocketIcon from "@/assets/rocket.svg";
 import BurgerMenuIcon from "@/assets/burger.svg";
 import DashboardMenuIcon from "@/assets/menu.svg";
 import TimerIcon from "@/assets/timer.svg";
+import SidebarBtn from "../ui/buttons/SidebarBtn";
 
 const Sidebar = () => {
   return (

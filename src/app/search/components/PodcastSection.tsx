@@ -1,12 +1,15 @@
 "use client";
 
+import Section from "@/components/layout/Section";
+import ViewToggleMenu, {
+  ViewModes,
+  ViewOptions,
+} from "@/components/ui/buttons/ViewToggleMenu";
+import PodcastCard, { Podcast } from "@/components/ui/cards/PodcastCard";
+import ScrollList from "@/components/ui/scroll-list/ScrollList";
+import { ScrollProvider } from "@/providers/ScrollProvider";
+import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
-import Section from "../layout/Section";
-import ViewToggleMenu, { ViewModes, ViewOptions } from "../ViewToggleMenu";
-import PodcastCard, { Podcast } from "../cards/PodcastCard";
-import EmblaCarousel from "../embla-carousel/EmbalaCarousel";
-import { ScrollProvider } from "../scroll-list/ScrollProvider";
-import ScrollList from "../scroll-list/ScrollList";
 
 const viewOptions: ViewOptions[] = [
   { label: "Switch to layout Grid", value: "grid" },
@@ -14,6 +17,7 @@ const viewOptions: ViewOptions[] = [
 ];
 
 const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
+  const searchParams = useSearchParams();
   const [viewMode, setViewMode] = useState<ViewModes>("grid");
 
   const renderPodcasts = () => {
@@ -48,7 +52,7 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
   return (
     <ScrollProvider>
       <Section
-        title={`Top podcasts for ${"فلان"}`}
+        title={`Top podcasts for ${searchParams.get("term")}`}
         menu={
           <ViewToggleMenu
             viewMode={viewMode}

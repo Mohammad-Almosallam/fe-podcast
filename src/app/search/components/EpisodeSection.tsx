@@ -1,12 +1,15 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
-import Section from "../layout/Section";
-import ViewToggleMenu, { ViewModes, ViewOptions } from "../ViewToggleMenu";
-import EpisodeCard, { Episode } from "../cards/EpisodeCard";
-import useMeasure from "react-use-measure";
-import ScrollList from "../scroll-list/ScrollList";
-import { ScrollProvider, useScroll } from "../scroll-list/ScrollProvider";
+import Section from "@/components/layout/Section";
+import ViewToggleMenu, {
+  ViewModes,
+  ViewOptions,
+} from "@/components/ui/buttons/ViewToggleMenu";
+import EpisodeCard, { Episode } from "@/components/ui/cards/EpisodeCard";
+import ScrollList from "@/components/ui/scroll-list/ScrollList";
+import { ScrollProvider } from "@/providers/ScrollProvider";
+import { useSearchParams } from "next/navigation";
+import React, { useState } from "react";
 
 const viewOptions: ViewOptions[] = [
   { label: "Switch to layout Grid", value: "grid" },
@@ -16,6 +19,7 @@ const viewOptions: ViewOptions[] = [
 ];
 
 const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
+  const searchParams = useSearchParams();
   const [viewMode, setViewMode] = useState<ViewModes>("grid");
 
   const renderEpisodes = () => {
@@ -62,7 +66,7 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
   return (
     <ScrollProvider>
       <Section
-        title={`Top podcasts for ${"عوعو"}`}
+        title={`Top podcasts for ${searchParams.get("term") ?? ""}`}
         menu={
           <ViewToggleMenu
             viewMode={viewMode}

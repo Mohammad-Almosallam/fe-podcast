@@ -1,8 +1,9 @@
 "use client";
-import { Episode } from "@/components/cards/EpisodeCard";
-import { Podcast } from "@/components/cards/PodcastCard";
+
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { Podcast } from "@/components/ui/cards/PodcastCard";
+import { Episode } from "@/components/ui/cards/EpisodeCard";
 
 const url = "http://localhost:3001/podcast";
 
