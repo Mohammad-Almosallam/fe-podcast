@@ -5,9 +5,14 @@ import ViewToggleMenu, {
   ViewModes,
   ViewOptions,
 } from "@/components/ui/buttons/ViewToggleMenu";
-import EpisodeCard, { Episode } from "@/components/ui/cards/EpisodeCard";
+import CompactCard from "@/components/ui/cards/CompactCard";
+
+import GridRectCard from "@/components/ui/cards/GridRectCard";
+import ListCard from "@/components/ui/cards/ListCard";
 import ScrollList from "@/components/ui/scroll-list/ScrollList";
+import { useAudio } from "@/providers/AudioPlayerProvider";
 import { ScrollProvider } from "@/providers/ScrollProvider";
+import { Episode } from "@/utils/types";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
@@ -22,13 +27,17 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
   const searchParams = useSearchParams();
   const [viewMode, setViewMode] = useState<ViewModes>("grid");
 
+  const { play } = useAudio();
+
   const renderEpisodes = () => {
     switch (viewMode) {
       case "scroll":
         return (
           <ScrollList
             items={episodes}
-            render={(e) => <EpisodeCard episode={e} viewMode="scroll" />}
+            render={(e) => (
+              <GridRectCard item={e} onClick={() => play(e.audioUrl)} />
+            )}
             className="pb-2 px-5 py-3"
           />
         );
@@ -37,7 +46,11 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
         return (
           <div className="grid grid-cols-1 @xl:grid-cols-2 @[50rem]:grid-cols-3 gap-4 px-5 py-3">
             {episodes.map((e, index) => (
-              <EpisodeCard key={index} episode={e} viewMode="grid" />
+              <GridRectCard
+                key={index}
+                item={e}
+                onClick={() => play(e.audioUrl)}
+              />
             ))}
           </div>
         );
@@ -46,7 +59,7 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
         return (
           <div className="grid grid-cols-1 @xl:grid-cols-3 gap-x-4 gap-y-1 px-5 py-3">
             {episodes.map((e, index) => (
-              <EpisodeCard key={index} episode={e} viewMode="compact" />
+              <CompactCard key={index} item={e} />
             ))}
           </div>
         );
@@ -56,7 +69,7 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
         return (
           <div className="flex flex-col">
             {episodes.map((e, index) => (
-              <EpisodeCard key={index} episode={e} viewMode="list" />
+              <ListCard key={index} item={e} onClick={() => play(e.audioUrl)} />
             ))}
           </div>
         );

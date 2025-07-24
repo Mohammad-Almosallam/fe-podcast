@@ -2,34 +2,29 @@ import React from "react";
 import Image from "next/image";
 import MenuDots from "@/assets/menu-dots.svg";
 
-export type Podcast = {
-  id: string;
+type GridSquareCardProps = {
   title: string;
-  imageUrl: string;
   author: string;
+  imageUrl: string;
 };
 
-type PodcastCardProps = {
-  podcast: Podcast;
-};
-
-const PodcastCard = ({ podcast }: PodcastCardProps) => {
+const GridSquareCard = ({ item }: { item: GridSquareCardProps }) => {
   return (
     <div className="w-full h-full">
       <div className="aspect-square mb-2 rounded cursor-pointer">
         <img
-          src={podcast.imageUrl}
-          alt={podcast.title}
+          src={item.imageUrl}
+          alt={item.title}
           className="w-full h-full object-cover rounded overflow-hidden"
         />
       </div>
       <div className="flex items-start  justify-between ">
         <div className="flex flex-col">
           <a className="text-sm  line-clamp-1 cursor-pointer hover:underline">
-            {podcast.title}
+            {item.title}
           </a>
           <a className="text-xs text-gray-400 line-clamp-1 cursor-pointer hover:underline">
-            {podcast.author}
+            {item.author}
           </a>
         </div>
         <button className="cursor-pointer  mr-[-7px]">
@@ -46,4 +41,4 @@ const PodcastCard = ({ podcast }: PodcastCardProps) => {
   );
 };
 
-export default PodcastCard;
+export default GridSquareCard;

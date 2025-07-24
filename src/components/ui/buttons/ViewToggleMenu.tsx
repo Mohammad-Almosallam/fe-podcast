@@ -72,7 +72,7 @@ const ViewToggleMenu = ({
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2" ref={menuRef}>
+        <div className="absolute right-0 mt-2 z-30" ref={menuRef}>
           <div className="bg-gradient-to-bl from-[#6b4081] to-[#414080] rounded-lg p-1 shadow-lg min-w-[220px] text-white text-sm">
             {options.map((option) => (
               <button

@@ -5,9 +5,10 @@ import ViewToggleMenu, {
   ViewModes,
   ViewOptions,
 } from "@/components/ui/buttons/ViewToggleMenu";
-import PodcastCard, { Podcast } from "@/components/ui/cards/PodcastCard";
+import GridSquareCard from "@/components/ui/cards/GridSquareCard";
 import ScrollList from "@/components/ui/scroll-list/ScrollList";
 import { ScrollProvider } from "@/providers/ScrollProvider";
+import { Podcast } from "@/utils/types";
 import { useSearchParams } from "next/navigation";
 import React, { useState } from "react";
 
@@ -26,7 +27,7 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
         return (
           <ScrollList
             items={podcasts}
-            render={(e) => <PodcastCard podcast={e} />}
+            render={(e) => <GridSquareCard item={e} />}
             className="pb-2 px-5 py-3"
             breakpoints={[
               { maxWidth: 640, itemsVisible: 2 },
@@ -41,8 +42,8 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
       default:
         return (
           <div className="grid grid-cols-2 @[500px]:grid-cols-3 @[700px]:grid-cols-4 @[950px]:grid-cols-5 gap-4 px-5 py-3">
-            {podcasts.map((podcast, index) => (
-              <PodcastCard key={index} podcast={podcast} />
+            {podcasts.map((p, index) => (
+              <GridSquareCard key={index} item={p} />
             ))}
           </div>
         );
