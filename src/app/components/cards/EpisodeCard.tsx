@@ -23,6 +23,7 @@ interface EpisodeCardProps {
 
 const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
   switch (viewMode) {
+    case "scroll":
     case "grid":
       return (
         <div className="flex bg-gradient-to-t from-[#22202c] to-[#27232e] h-full w-full rounded-md overflow-hidden shadow-[inset_0_1px_1px_hsl(240,10%,20%),_0_2px_4px_rgba(0,0,0,0.05)]">
@@ -39,7 +40,7 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
           <div className="py-2.5 px-4  w-full flex flex-col justify-between items-start">
             <div className="flex w-full items-start justify-between">
               <div>
-                <a className="text-xs cursor-pointer hover:underline line-clamp-1 text-[#E3BD71]">
+                <a className="text-xs cursor-pointer hover:underline line-clamp-1  text-[#E3BD71]">
                   {episode.author}
                 </a>
 
@@ -64,12 +65,6 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
               <p className="text-xs text-[#cfd0d3]">{episode.duration}</p>
             </div>
           </div>
-        </div>
-      );
-    case "scroll":
-      return (
-        <div className="bg-gray-700 w-40 h-40 shrink-0 rounded">
-          Scroll - {episode.title}
         </div>
       );
     case "compact":

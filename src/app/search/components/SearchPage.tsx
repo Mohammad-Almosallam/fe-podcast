@@ -7,6 +7,7 @@ import SearchBar from "@/components/layout/SearchBar";
 import PodcastSection from "@/components/view/PodcastSection";
 import EpisodeSection from "@/components/view/EpisodeSection";
 import { useGetPodcastsAndEpisodes } from "@/api/search/useGetPodcastsAndEpisodes";
+import { ScrollProvider } from "@/components/scroll-list/ScrollProvider";
 
 export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
   const searchParams = useSearchParams();
@@ -43,7 +44,7 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
           `/search?term=${encodeURIComponent(searchTerm)}`,
           undefined
         );
-      }, 500),
+      }, 800),
     [router]
   );
 

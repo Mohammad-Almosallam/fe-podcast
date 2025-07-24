@@ -1,9 +1,12 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Section from "../layout/Section";
 import ViewToggleMenu, { ViewModes, ViewOptions } from "../ViewToggleMenu";
 import EpisodeCard, { Episode } from "../cards/EpisodeCard";
+import useMeasure from "react-use-measure";
+import ScrollList from "../scroll-list/ScrollList";
+import { ScrollProvider, useScroll } from "../scroll-list/ScrollProvider";
 
 const viewOptions: ViewOptions[] = [
   { label: "Switch to layout Grid", value: "grid" },
@@ -19,11 +22,11 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
     switch (viewMode) {
       case "scroll":
         return (
-          <div className="flex overflow-x-auto gap-3 pb-2 px-5 py-3">
-            {episodes.map((e, index) => (
-              <EpisodeCard key={index} episode={e} viewMode="scroll" />
-            ))}
-          </div>
+          <ScrollList
+            items={episodes}
+            render={(e) => <EpisodeCard episode={e} viewMode="scroll" />}
+            className="pb-2 px-5 py-3"
+          />
         );
 
       case "grid":
@@ -57,18 +60,20 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
   };
 
   return (
-    <Section
-      title={`Top podcasts for ${"عوعو"}`}
-      menu={
-        <ViewToggleMenu
-          viewMode={viewMode}
-          onChange={setViewMode}
-          options={viewOptions}
-        />
-      }
-    >
-      {renderEpisodes()}
-    </Section>
+    <ScrollProvider>
+      <Section
+        title={`Top podcasts for ${"عوعو"}`}
+        menu={
+          <ViewToggleMenu
+            viewMode={viewMode}
+            onChange={setViewMode}
+            options={viewOptions}
+          />
+        }
+      >
+        {renderEpisodes()}
+      </Section>
+    </ScrollProvider>
   );
 };
 

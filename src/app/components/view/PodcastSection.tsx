@@ -1,10 +1,12 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import Section from "../layout/Section";
 import ViewToggleMenu, { ViewModes, ViewOptions } from "../ViewToggleMenu";
 import PodcastCard, { Podcast } from "../cards/PodcastCard";
 import EmblaCarousel from "../embla-carousel/EmbalaCarousel";
+import { ScrollProvider } from "../scroll-list/ScrollProvider";
+import ScrollList from "../scroll-list/ScrollList";
 
 const viewOptions: ViewOptions[] = [
   { label: "Switch to layout Grid", value: "grid" },
@@ -18,15 +20,17 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
     switch (viewMode) {
       case "scroll":
         return (
-          <div className="relative px-5 py-3">
-            <EmblaCarousel>
-              {podcasts.map((podcast, index) => (
-                <div key={index} className="shrink-0">
-                  <PodcastCard podcast={podcast} />
-                </div>
-              ))}
-            </EmblaCarousel>
-          </div>
+          <ScrollList
+            items={podcasts}
+            render={(e) => <PodcastCard podcast={e} />}
+            className="pb-2 px-5 py-3"
+            breakpoints={[
+              { maxWidth: 640, itemsVisible: 2 },
+              { maxWidth: 768, itemsVisible: 3 },
+              { maxWidth: 1024, itemsVisible: 4 },
+              { maxWidth: Infinity, itemsVisible: 5 },
+            ]}
+          />
         );
 
       case "grid":
@@ -42,18 +46,20 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
   };
 
   return (
-    <Section
-      title={`Top podcasts for ${"فلان"}`}
-      menu={
-        <ViewToggleMenu
-          viewMode={viewMode}
-          onChange={setViewMode}
-          options={viewOptions}
-        />
-      }
-    >
-      {renderPodcasts()}
-    </Section>
+    <ScrollProvider>
+      <Section
+        title={`Top podcasts for ${"فلان"}`}
+        menu={
+          <ViewToggleMenu
+            viewMode={viewMode}
+            onChange={setViewMode}
+            options={viewOptions}
+          />
+        }
+      >
+        {renderPodcasts()}
+      </Section>
+    </ScrollProvider>
   );
 };
 

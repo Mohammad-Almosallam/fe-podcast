@@ -19,7 +19,8 @@ type Params = {
 export const useGetPodcastsAndEpisodes = (params: Params) => {
   return useQuery({
     queryKey: ["podcastAndEpisode", params.term],
-    queryFn: () => axios.get<PodcastsAndEpisodesResponse>(url, { params }),
+    queryFn: () =>
+      axios.get<PodcastsAndEpisodesResponse>(`${url}?term=${params.term}`),
     enabled: params.enabled,
     select: (response) => response.data,
   });
