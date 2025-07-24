@@ -4,10 +4,10 @@ import { useScroll } from "@/providers/ScrollProvider";
 import React, { ReactNode, useMemo } from "react";
 import useMeasure from "react-use-measure";
 
-export interface BreakpointConfig {
+type BreakpointConfig = {
   maxWidth: number;
   itemsVisible: number;
-}
+};
 
 type ScrollListProps<T> = {
   items: T[];

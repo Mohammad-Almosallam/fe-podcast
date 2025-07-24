@@ -1,10 +1,10 @@
 import React, { ReactNode } from "react";
 
-interface SectionProps {
+type SectionProps = {
   title: ReactNode;
   children: ReactNode;
   menu?: ReactNode;
-}
+};
 
 const Section = ({ title, children, menu }: SectionProps) => {
   return (

@@ -9,7 +9,7 @@ import React, {
   ReactNode,
 } from "react";
 
-export interface AudioContextType {
+export type AudioContextType = {
   play: (src?: string) => void;
   pause: () => void;
   skipForward: () => void;
@@ -24,7 +24,7 @@ export interface AudioContextType {
   duration: number;
   volume: number;
   speed: number;
-}
+};
 
 const AudioContext = createContext<AudioContextType | undefined>(undefined);
 
