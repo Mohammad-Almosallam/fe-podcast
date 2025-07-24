@@ -11,37 +11,37 @@ type CompactCardProps = {
 
 const CompactCard = ({ item }: { item: CompactCardProps }) => {
   return (
-    <div className="flex flex-col gap-0.5 h-full w-full  ">
-      <div className="flex  overflow-hidden rounded-sm hover:bg-black/30 p-1 gap-2.5 ">
-        <div className="relative w-[50px] h-[50px] cursor-pointer shrink-0 rounded-sm overflow-hidden">
+    <div className="flex h-full w-full flex-col gap-0.5">
+      <div className="flex gap-2.5 overflow-hidden rounded-sm p-1 hover:bg-black/30">
+        <div className="relative h-[50px] w-[50px] shrink-0 cursor-pointer overflow-hidden rounded-sm">
           <img
             src={item.imageUrl}
             alt={item.title}
-            className="w-full h-full object-cover"
+            className="h-full w-full object-cover"
           />
         </div>
 
         <div className="flex w-full items-center justify-between">
           <div>
-            <a className="text-sm cursor-pointer hover:underline line-clamp-1">
+            <a className="line-clamp-1 cursor-pointer text-sm hover:underline">
               {item.title}
             </a>
-            <a className="text-xs cursor-pointer hover:underline line-clamp-1 text-[#E3BD71]">
+            <a className="line-clamp-1 cursor-pointer text-xs text-[#E3BD71] hover:underline">
               {item.author}
             </a>
           </div>
-          <button className="cursor-pointer   shrink-0">
+          <button className="shrink-0 cursor-pointer">
             <Image
               src={MenuDots}
               alt="menu"
               width={20}
               height={20}
-              className="brightness-50 hover:brightness-100 transition duration-200 ease-in-out"
+              className="brightness-50 transition duration-200 ease-in-out hover:brightness-100"
             />
           </button>
         </div>
       </div>
-      <div className="w-full border-[var(--color-border)] border-[0.5px]" />
+      <div className="w-full border-[0.5px] border-[var(--color-border)]" />
     </div>
   );
 };

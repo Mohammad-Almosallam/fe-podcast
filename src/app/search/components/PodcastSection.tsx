@@ -28,7 +28,7 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
           <ScrollList
             items={podcasts}
             render={(e) => <GridSquareCard item={e} />}
-            className="pb-2 px-5 py-3"
+            className="px-5 py-3 pb-2"
             breakpoints={[
               { maxWidth: 640, itemsVisible: 2 },
               { maxWidth: 768, itemsVisible: 3 },
@@ -41,7 +41,7 @@ const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
       case "grid":
       default:
         return (
-          <div className="grid grid-cols-2 @[500px]:grid-cols-3 @[700px]:grid-cols-4 @[950px]:grid-cols-5 gap-4 px-5 py-3">
+          <div className="grid grid-cols-2 gap-4 px-5 py-3 @[500px]:grid-cols-3 @[700px]:grid-cols-4 @[950px]:grid-cols-5">
             {podcasts.map((p, index) => (
               <GridSquareCard key={index} item={p} />
             ))}

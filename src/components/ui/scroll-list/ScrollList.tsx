@@ -44,7 +44,7 @@ export default function ScrollList<T>({
         measureRef(node);
         setContainerRef(node instanceof HTMLDivElement ? node : null);
       }}
-      className={`flex overflow-x-scroll gap-3 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#464684] scrollbar-thumb-rounded-sm pb-4 [&::-webkit-scrollbar]:visible ${className}`.trim()}
+      className={`scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#464684] scrollbar-thumb-rounded-sm flex gap-3 overflow-x-scroll pb-4 [&::-webkit-scrollbar]:visible ${className}`.trim()}
     >
       {items.map((item, idx) => (
         <div

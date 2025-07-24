@@ -14,7 +14,7 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
   const router = useRouter();
 
   const [search, setSearch] = useState<string>(
-    searchParams.get("term") ?? initialTerm ?? ""
+    searchParams.get("term") ?? initialTerm ?? "",
   );
   const [debouncedSearchTerm, setDebouncedSearchTerm] =
     useState<string>(search);
@@ -42,10 +42,10 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
         setDebouncedSearchTerm(searchTerm);
         router.replace(
           `/search?term=${encodeURIComponent(searchTerm)}`,
-          undefined
+          undefined,
         );
       }, 800),
-    [router]
+    [router],
   );
 
   useEffect(() => {
@@ -61,18 +61,18 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
       {podcasts.length === 0 &&
         episodes.length === 0 &&
         !debouncedSearchTerm && (
-          <div className="text-gray-500 text-center mt-4">
+          <div className="mt-4 text-center text-gray-500">
             Type in a search term to start.
           </div>
         )}
       {isLoading && (
-        <div className="flex items-center justify-center h-64">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+        <div className="flex h-64 items-center justify-center">
+          <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-blue-500"></div>
         </div>
       )}
 
       {isError && (
-        <div className="text-red-500 text-center mt-4">
+        <div className="mt-4 text-center text-red-500">
           Error loading podcasts and episodes
         </div>
       )}
@@ -82,7 +82,7 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
         podcasts.length === 0 &&
         episodes.length === 0 &&
         debouncedSearchTerm && (
-          <div className="text-gray-500 text-center mt-4">
+          <div className="mt-4 text-center text-gray-500">
             No results found for {debouncedSearchTerm}
           </div>
         )}

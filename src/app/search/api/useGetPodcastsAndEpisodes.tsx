@@ -2,8 +2,7 @@
 
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
-import { Podcast } from "@/components/ui/cards/PodcastCard";
-import { Episode } from "@/components/ui/cards/EpisodeCard";
+import { Episode, Podcast } from "@/utils/types";
 
 const url = "http://localhost:3001/podcast";
 

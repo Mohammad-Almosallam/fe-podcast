@@ -68,7 +68,7 @@ export const AudioPlayerProvider: React.FC<{ children: ReactNode }> = ({
 
     audioRef.current.currentTime = Math.min(
       audioRef.current.duration,
-      Math.max(0, audioRef.current.currentTime + time)
+      Math.max(0, audioRef.current.currentTime + time),
     );
     setCurrentTime(audioRef.current.currentTime);
   };

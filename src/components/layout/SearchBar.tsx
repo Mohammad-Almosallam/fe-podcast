@@ -10,18 +10,9 @@ type Props = {
 
 export default function SearchBar({ value, onChange }: Props) {
   return (
-    <div
-      className="
-    sticky top-0 z-20 
-    flex items-center justify-between gap-2 
-    px-4 py-2.5
-    md:p-2.5 
-    bg-gradient-to-b from-[#0f1b38] to-transparent backdrop-blur-md
-    md:bg-[hsl(238,27%,12%)] md:backdrop-blur-none md:bg-none
-  "
-    >
-      <div className="flex items-center gap-2 shrink-0">
-        <div className="md:hidden w-10 h-10 flex items-center">
+    <div className="sticky top-0 z-20 flex items-center justify-between gap-2 bg-gradient-to-b from-[#0f1b38] to-transparent px-4 py-2.5 backdrop-blur-md md:bg-[hsl(238,27%,12%)] md:bg-none md:p-2.5 md:backdrop-blur-none">
+      <div className="flex shrink-0 items-center gap-2">
+        <div className="flex h-10 w-10 items-center md:hidden">
           <Image src={Logo} alt="logo" />
         </div>
 
@@ -31,7 +22,7 @@ export default function SearchBar({ value, onChange }: Props) {
           width={22}
           height={22}
           onClick={() => window.history.back()}
-          className="opacity-50 cursor-pointer hover:opacity-100 hidden sm:block"
+          className="hidden cursor-pointer opacity-50 hover:opacity-100 sm:block"
         />
         <Image
           src={RightChevronIcon}
@@ -39,23 +30,23 @@ export default function SearchBar({ value, onChange }: Props) {
           width={22}
           height={22}
           onClick={() => window.history.forward()}
-          className="opacity-50 cursor-pointer hover:opacity-100 hidden sm:block"
+          className="hidden cursor-pointer opacity-50 hover:opacity-100 sm:block"
         />
       </div>
 
       <input
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="bg-[hsl(238,27%,12%)]/80 flex-1 h-8 px-4 py-2 text-sm text-center rounded-lg border border-[var(--color-input-border)] focus:outline-none focus:border-indigo-400 focus:bg-[var(--color-input-bg-hover)] focus:placeholder-transparent"
+        className="h-8 flex-1 rounded-lg border border-[var(--color-input-border)] bg-[hsl(238,27%,12%)]/80 px-4 py-2 text-center text-sm focus:border-indigo-400 focus:bg-[var(--color-input-bg-hover)] focus:placeholder-transparent focus:outline-none"
         placeholder="Search through over 70 million podcasts and episodes..."
       />
 
-      <div className="hidden lg:block space-x-2">
-        <button className="h-7.5 bg-gradient-to-t from-[#2d5479] to-[#3f678b] cursor-pointer hover:brightness-125 text-sm px-3 py-1 rounded text-white transition duration-200 ease-in-out">
+      <div className="hidden space-x-2 lg:block">
+        <button className="h-7.5 cursor-pointer rounded bg-gradient-to-t from-[#2d5479] to-[#3f678b] px-3 py-1 text-sm text-white transition duration-200 ease-in-out hover:brightness-125">
           Log in
         </button>
 
-        <button className="h-7.5 bg-gradient-to-t from-[#2d5479] to-[#3f678b] cursor-pointer hover:brightness-125 text-sm px-3 py-1 rounded text-white transition duration-200 ease-in-out">
+        <button className="h-7.5 cursor-pointer rounded bg-gradient-to-t from-[#2d5479] to-[#3f678b] px-3 py-1 text-sm text-white transition duration-200 ease-in-out hover:brightness-125">
           Sign up
         </button>
       </div>

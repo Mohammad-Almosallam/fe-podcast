@@ -38,13 +38,13 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
             render={(e) => (
               <GridRectCard item={e} onClick={() => play(e.audioUrl)} />
             )}
-            className="pb-2 px-5 py-3"
+            className="px-5 py-3 pb-2"
           />
         );
 
       case "grid":
         return (
-          <div className="grid grid-cols-1 @xl:grid-cols-2 @[50rem]:grid-cols-3 gap-4 px-5 py-3">
+          <div className="grid grid-cols-1 gap-4 px-5 py-3 @xl:grid-cols-2 @[50rem]:grid-cols-3">
             {episodes.map((e, index) => (
               <GridRectCard
                 key={index}
@@ -57,7 +57,7 @@ const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {
 
       case "compact":
         return (
-          <div className="grid grid-cols-1 @xl:grid-cols-3 gap-x-4 gap-y-1 px-5 py-3">
+          <div className="grid grid-cols-1 gap-x-4 gap-y-1 px-5 py-3 @xl:grid-cols-3">
             {episodes.map((e, index) => (
               <CompactCard key={index} item={e} />
             ))}

@@ -45,14 +45,14 @@ const ViewToggleMenu = ({
   return (
     <div className="relative flex gap-2">
       {viewMode === "scroll" && (
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex shrink-0 items-center gap-2">
           <Image
             src={LeftChevronIcon}
             alt="left-chevron"
             width={22}
             height={22}
             onClick={() => scrollPrev(200)}
-            className="opacity-50 cursor-pointer hover:opacity-100 "
+            className="cursor-pointer opacity-50 hover:opacity-100"
           />
           <Image
             src={RightChevronIcon}
@@ -60,7 +60,7 @@ const ViewToggleMenu = ({
             width={22}
             height={22}
             onClick={() => scrollNext(200)}
-            className="opacity-50 cursor-pointer hover:opacity-100"
+            className="cursor-pointer opacity-50 hover:opacity-100"
           />
         </div>
       )}
@@ -72,8 +72,8 @@ const ViewToggleMenu = ({
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 z-30" ref={menuRef}>
-          <div className="bg-gradient-to-bl from-[#6b4081] to-[#414080] rounded-lg p-1 shadow-lg min-w-[220px] text-white text-sm">
+        <div className="absolute right-0 z-30 mt-2" ref={menuRef}>
+          <div className="min-w-[220px] rounded-lg bg-gradient-to-bl from-[#6b4081] to-[#414080] p-1 text-sm text-white shadow-lg">
             {options.map((option) => (
               <button
                 key={option.value}
@@ -81,12 +81,7 @@ const ViewToggleMenu = ({
                   onChange(option.value);
                   setOpen(false);
                 }}
-                className={`
-                  w-full text-left px-4 py-2 transition-opacity duration-150
-                  hover:opacity-90 cursor-pointer hover:bg-black/10
-                  rounded-md
-                  ${viewMode === option.value ? "opacity-100" : "opacity-80"}
-                `}
+                className={`w-full cursor-pointer rounded-md px-4 py-2 text-left transition-opacity duration-150 hover:bg-black/10 hover:opacity-90 ${viewMode === option.value ? "opacity-100" : "opacity-80"} `}
               >
                 {option.label}
               </button>

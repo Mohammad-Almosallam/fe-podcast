@@ -22,31 +22,31 @@ const ListCard = ({
   onClick?: () => void;
 }) => {
   return (
-    <div className="flex overflow-hidden rounded-sm group hover:bg-black/30 px-4 py-2.5 gap-2.5 border-b-1 border-[var(--color-border)]">
-      <div className="relative w-[100px] h-[100px] cursor-pointer shrink-0 rounded-sm overflow-hidden">
+    <div className="group flex gap-2.5 overflow-hidden rounded-sm border-b-1 border-[var(--color-border)] px-4 py-2.5 hover:bg-black/30">
+      <div className="relative h-[100px] w-[100px] shrink-0 cursor-pointer overflow-hidden rounded-sm">
         <img
           src={item.imageUrl}
           alt={item.title}
-          className="w-full h-full object-cover"
+          className="h-full w-full object-cover"
         />
         <div
           onClick={onClick}
-          className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-200 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center bg-black/30 opacity-0 transition duration-200 group-hover:opacity-100"
         >
           <Image src={PlayIcon} alt="menu" width={44} height={44} />
         </div>
       </div>
 
-      <div className="flex w-full items-center justify-between ">
-        <div className="flex flex-col gap-3 justify-between h-full">
+      <div className="flex w-full items-center justify-between">
+        <div className="flex h-full flex-col justify-between gap-3">
           <div>
-            <a className="text-md cursor-pointer hover:underline line-clamp-1">
+            <a className="text-md line-clamp-1 cursor-pointer hover:underline">
               {item.title}
             </a>
-            <a className="text-xs cursor-pointer hover:underline line-clamp-1 text-[#E3BD71]">
+            <a className="line-clamp-1 cursor-pointer text-xs text-[#E3BD71] hover:underline">
               {item.author}
             </a>
-            <a className="text-xs cursor-pointer hover:underline line-clamp-2 text-[#ffffff99]">
+            <a className="line-clamp-2 cursor-pointer text-xs text-[#ffffff99] hover:underline">
               {item.description}
             </a>
           </div>
@@ -59,23 +59,23 @@ const ListCard = ({
             </span>
           </div>
         </div>
-        <div className="flex flex-col gap-4 shrink-0">
+        <div className="flex shrink-0 flex-col gap-4">
           <button className="cursor-pointer">
             <Image
               src={PlayIcon}
               alt="menu"
               width={12}
               height={12}
-              className="brightness-50 hover:brightness-100 transition duration-200 ease-in-out"
+              className="brightness-50 transition duration-200 ease-in-out hover:brightness-100"
             />
           </button>
-          <button className="cursor-pointer ">
+          <button className="cursor-pointer">
             <Image
               src={MenuDots}
               alt="menu"
               width={12}
               height={12}
-              className="brightness-50 hover:brightness-100 transition duration-200 ease-in-out"
+              className="brightness-50 transition duration-200 ease-in-out hover:brightness-100"
             />
           </button>
         </div>

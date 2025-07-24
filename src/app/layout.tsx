@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html>
-      <body className="font-sans text-white overflow-hidden bg-[var(--color-bg-main)]">
+      <body className="overflow-hidden bg-[var(--color-bg-main)] font-sans text-white">
         <ReactQueryProvider>
           <AudioPlayerProvider>
             <div className="flex h-screen">

@@ -1,12 +1,6 @@
 "use client";
 
-import React, {
-  createContext,
-  useState,
-  useCallback,
-  useContext,
-  useEffect,
-} from "react";
+import React, { createContext, useState, useCallback, useContext } from "react";
 import useMeasure from "react-use-measure";
 
 type ScrollContextType = {
@@ -25,23 +19,17 @@ export const ScrollProvider: React.FC<{ children: React.ReactNode }> = ({
 
   measureRef(containerRef);
 
-  const scrollNext = useCallback(
-    (duration: number = 400) => {
-      if (containerRef) {
-        containerRef.scrollBy({ left: width, behavior: "smooth" });
-      }
-    },
-    [containerRef, width]
-  );
+  const scrollNext = useCallback(() => {
+    if (containerRef) {
+      containerRef.scrollBy({ left: width, behavior: "smooth" });
+    }
+  }, [containerRef, width]);
 
-  const scrollPrev = useCallback(
-    (duration: number = 400) => {
-      if (containerRef) {
-        containerRef.scrollBy({ left: -width, behavior: "smooth" });
-      }
-    },
-    [containerRef, width]
-  );
+  const scrollPrev = useCallback(() => {
+    if (containerRef) {
+      containerRef.scrollBy({ left: -width, behavior: "smooth" });
+    }
+  }, [containerRef, width]);
 
   return (
     <ScrollContext.Provider value={{ setContainerRef, scrollNext, scrollPrev }}>
