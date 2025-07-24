@@ -8,6 +8,7 @@ import PodcastSection from "./PodcastSection";
 
 import { useGetPodcastsAndEpisodes } from "@/app/search/api/useGetPodcastsAndEpisodes";
 import EpisodeSection from "@/app/search/components/EpisodeSection";
+import { AudioPlayer } from "@/components/ui/audio-player/AudioPlayer";
 
 export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
   const searchParams = useSearchParams();
@@ -87,6 +88,7 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
           </div>
         )}
 
+      <AudioPlayer />
       <div className="mt-10">
         {podcasts.length > 0 && <PodcastSection podcasts={podcasts} />}
         {episodes.length > 0 && <EpisodeSection episodes={episodes} />}
