@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "./embla.css";
 @plugin 'tailwind-scrollbar';
 
 @theme {
@@ -10,8 +9,6 @@
   --color-input-border:#50515d
 
 }
-
-
 
 *,
 *::before,

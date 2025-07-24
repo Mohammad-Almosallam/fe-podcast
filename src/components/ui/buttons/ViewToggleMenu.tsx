@@ -5,7 +5,7 @@ import MenuDots from "@/assets/menu-dots.svg";
 
 import LeftChevronIcon from "@/assets/left-chevron.svg";
 import RightChevronIcon from "@/assets/right-chevron.svg";
-import { useScroll } from "@/features/search/hooks";
+import { useScroll } from "@/providers/ScrollProvider";
 
 export type ViewModes = "grid" | "scroll" | "list" | "compact";
 
@@ -51,7 +51,7 @@ const ViewToggleMenu = ({
             alt="left-chevron"
             width={22}
             height={22}
-            onClick={() => scrollPrev()}
+            onClick={() => scrollPrev(200)}
             className="opacity-50 cursor-pointer hover:opacity-100 "
           />
           <Image
@@ -59,7 +59,7 @@ const ViewToggleMenu = ({
             alt="right-chevron"
             width={22}
             height={22}
-            onClick={() => scrollNext()}
+            onClick={() => scrollNext(200)}
             className="opacity-50 cursor-pointer hover:opacity-100"
           />
         </div>

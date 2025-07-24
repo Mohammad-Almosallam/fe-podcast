@@ -1,6 +1,6 @@
 "use client";
 
-import { useScroll } from "@/features/search/hooks";
+import { useScroll } from "@/providers/ScrollProvider";
 import React, { ReactNode, useMemo } from "react";
 import useMeasure from "react-use-measure";
 
