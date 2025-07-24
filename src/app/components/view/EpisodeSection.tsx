@@ -6,10 +6,10 @@ import ViewToggleMenu, { ViewModes, ViewOptions } from "../ViewToggleMenu";
 import EpisodeCard, { Episode } from "../cards/EpisodeCard";
 
 const viewOptions: ViewOptions[] = [
-  { label: "Grid", value: "grid" },
-  { label: "Scroll", value: "scroll" },
-  { label: "Compact", value: "compact" },
-  { label: "List", value: "list" },
+  { label: "Switch to layout Grid", value: "grid" },
+  { label: "Switch to layout Scroll", value: "scroll" },
+  { label: "Switch to layout Compact", value: "compact" },
+  { label: "Switch to layout List", value: "list" },
 ];
 
 const EpisodeSection = ({ episodes }: { episodes: Episode[] }) => {

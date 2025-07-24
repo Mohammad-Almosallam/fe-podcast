@@ -7,8 +7,8 @@ import PodcastCard, { Podcast } from "../cards/PodcastCard";
 import EmblaCarousel from "../embla-carousel/EmbalaCarousel";
 
 const viewOptions: ViewOptions[] = [
-  { label: "Grid", value: "grid" },
-  { label: "Scroll", value: "scroll" },
+  { label: "Switch to layout Grid", value: "grid" },
+  { label: "Switch to layout Scroll", value: "scroll" },
 ];
 
 const PodcastSection = ({ podcasts }: { podcasts: Podcast[] }) => {
