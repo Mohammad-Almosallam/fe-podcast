@@ -86,10 +86,10 @@ export default function SearchPage({ initialTerm }: { initialTerm?: string }) {
           </div>
         )}
 
-      <>
+      <div className="mt-10">
         {podcasts.length > 0 && <PodcastSection podcasts={podcasts} />}
         {episodes.length > 0 && <EpisodeSection episodes={episodes} />}
-      </>
+      </div>
     </div>
   );
 }

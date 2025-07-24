@@ -3,11 +3,17 @@ import { ViewModes } from "../ViewToggleMenu";
 import Image from "next/image";
 import PlayIcon from "@/assets/play.svg";
 import MenuDots from "@/assets/menu-dots.svg";
+import { convertMsToMinutes } from "@/utils/convertMsToMinutes";
+import { format } from "date-fns";
 
 export type Episode = {
   id: string;
   title: string;
-  image: string;
+  description: string;
+  author: string;
+  imageUrl: string;
+  publishedAt: string;
+  duration: string;
 };
 
 interface EpisodeCardProps {
@@ -22,7 +28,7 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
         <div className="flex bg-gradient-to-t from-[#22202c] to-[#27232e] h-full w-full rounded-md overflow-hidden shadow-[inset_0_1px_1px_hsl(240,10%,20%),_0_2px_4px_rgba(0,0,0,0.05)]">
           <div className="relative w-[110px] h-[110px] cursor-pointer shrink-0 group">
             <img
-              src={episode.image}
+              src={episode.imageUrl}
               alt={episode.title}
               className="w-full h-full object-cover"
             />
@@ -34,11 +40,11 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
             <div className="flex w-full items-start justify-between">
               <div>
                 <a className="text-xs cursor-pointer hover:underline line-clamp-1 text-[#E3BD71]">
-                  The Motivator Podcast with Dhari Ibrahim
+                  {episode.author}
                 </a>
 
                 <a className="text-sm cursor-pointer hover:underline line-clamp-1">
-                  040 | فن التواصل
+                  {episode.description}
                 </a>
               </div>
               <button className="cursor-pointer  mr-[-12px] shrink-0">
@@ -52,8 +58,10 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
               </button>
             </div>
             <div className="flex items-center gap-2">
-              <p className="text-xs text-[#cfd0d3]">Feb 10</p>
-              <p className="text-xs text-[#cfd0d3]">44min</p>
+              <p className="text-xs text-[#cfd0d3]">
+                {new Date(episode.publishedAt).toLocaleString()}
+              </p>
+              <p className="text-xs text-[#cfd0d3]">{episode.duration}</p>
             </div>
           </div>
         </div>
@@ -70,7 +78,7 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
           <div className="flex  overflow-hidden rounded-sm hover:bg-black/30 p-1 gap-2.5 ">
             <div className="relative w-[50px] h-[50px] cursor-pointer shrink-0 rounded-sm overflow-hidden">
               <img
-                src={episode.image}
+                src={episode.imageUrl}
                 alt={episode.title}
                 className="w-full h-full object-cover"
               />
@@ -79,10 +87,10 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
             <div className="flex w-full items-center justify-between">
               <div>
                 <a className="text-sm cursor-pointer hover:underline line-clamp-1">
-                  040 | فن التواصل
+                  {episode.title}
                 </a>
                 <a className="text-xs cursor-pointer hover:underline line-clamp-1 text-[#E3BD71]">
-                  The Motivator Podcast with Dhari Ibrahim
+                  {episode.author}
                 </a>
               </div>
               <button className="cursor-pointer   shrink-0">
@@ -104,7 +112,7 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
         <div className="flex overflow-hidden rounded-sm group hover:bg-black/30 px-4 py-2.5 gap-2.5 border-b-1 border-[var(--color-border)]">
           <div className="relative w-[100px] h-[100px] cursor-pointer shrink-0 rounded-sm overflow-hidden">
             <img
-              src={episode.image}
+              src={episode.imageUrl}
               alt={episode.title}
               className="w-full h-full object-cover"
             />
@@ -114,23 +122,25 @@ const EpisodeCard = ({ episode, viewMode }: EpisodeCardProps) => {
           </div>
 
           <div className="flex w-full items-center justify-between ">
-            <div className="flex flex-col gap-3 ">
+            <div className="flex flex-col gap-3 justify-between h-full">
               <div>
                 <a className="text-md cursor-pointer hover:underline line-clamp-1">
-                  040 | فن التواصل
+                  {episode.title}
                 </a>
                 <a className="text-xs cursor-pointer hover:underline line-clamp-1 text-[#E3BD71]">
-                  The Motivator Podcast with Dhari Ibrahim
+                  {episode.author}
                 </a>
                 <a className="text-xs cursor-pointer hover:underline line-clamp-2 text-[#ffffff99]">
-                  Joe is a hobo punk anarchist who wants to jettison part of his
-                  old self, so that he can step out onto the dance floor. Our
-                  final episode of season 2.
+                  {episode.description}
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <span className="text-xs text-[#cfd0d3]">Jul 2, 2019</span>
-                <span className="text-xs text-[#cfd0d3]">44 min</span>
+                <span className="text-xs text-[#cfd0d3]">
+                  {format(episode.publishedAt, "MMM d, yyyy")}
+                </span>
+                <span className="text-xs text-[#cfd0d3]">
+                  {convertMsToMinutes(episode.duration)}
+                </span>
               </div>
             </div>
             <div className="flex flex-col gap-4 shrink-0">

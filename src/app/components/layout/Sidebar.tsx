@@ -11,7 +11,7 @@ const Sidebar = () => {
   return (
     <aside className="w-56 hidden md:flex  flex-col bg-[var(--color-bg-sidebar)] h-screen sticky top-0 border-r border-[var(--color-border)]">
       <div className="p-4 mb-4">
-        <Image src={Logo} alt="" />
+        <Image src={Logo} alt="logo" />
       </div>
 
       <nav className="text-sm flex-1 flex flex-col justify-start">
