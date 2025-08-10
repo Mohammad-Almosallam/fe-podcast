@@ -4,7 +4,7 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import { Episode, Podcast } from "@/utils/types";
 
-const url = "http://localhost:3001/podcast";
+const url = "https://be-podcast.onrender.com/podcast";
 
 export type PodcastsAndEpisodesResponse = {
   podcasts: Podcast[];
